@@ -1,0 +1,35 @@
+{
+  "name": "todo-list-material-ui",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "3.0.2",
+    "@material-ui/styles": "3.0.0-alpha.10",
+    "axios": "^0.21.1",
+    "react": "^16.8.3",
+    "react-dom": "16.8.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "2.1.8",
+    "react-transition-group": "4.0.0",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://3.90.105.161:5000/",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
