@@ -11,7 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router-dom';
 
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -47,10 +46,9 @@ export default function SignIn() {
 
   const handleSignIn = async() => {
     const creds = credentials
-    await fetch("/validateCredentials", {
+    await fetch("http://3.90.105.161:5000/validateCredentials", {
       method: "POST",
       headers: {
-        "Access-Control-Allow-Credentials": true,
         'Content-Type' : 'application/json'
       },
         body: JSON.stringify(creds)
