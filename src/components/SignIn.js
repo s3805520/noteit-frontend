@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router-dom';
+import { API } from 'aws-amplify';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,20 +47,35 @@ export default function SignIn() {
 
   const handleSignIn = async() => {
     const creds = credentials
-    await fetch("/validateCredentials", {
-      method: "POST",
+    API.post('validateCredentialsApi', '/validateCredentials', {
       headers: {
         'Content-Type' : 'application/json'
       },
         body: JSON.stringify(creds)
-      })
-      .then(function(response) {
-        return response.json()
-      })
-      .then(function(data) {
-        if(data.success)
-          setRedirect(data.success)
+      
+    }).then(response => {
+      return response.json()
+    }).then(function(data) {
+      if(data.success)
+        setRedirect(data.success)
+  }).catch(err => {
+      console.log(err);
     })
+
+    // await fetch("/validateCredentials", {
+    //   method: "POST",
+    //   headers: {
+    //     'Content-Type' : 'application/json'
+    //   },
+    //     body: JSON.stringify(creds)
+    //   })
+    //   .then(function(response) {
+    //     return response.json()
+    //   })
+    //   .then(function(data) {
+    //     if(data.success)
+    //       setRedirect(data.success)
+    // })
   }
 
   return !redirect ? (
