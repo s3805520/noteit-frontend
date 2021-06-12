@@ -50,6 +50,7 @@ export default function SignIn() {
     await fetch("/validateCredentials", {
       method: "POST",
       headers: {
+        "Access-Control-Allow-Credentials": true,
         'Content-Type' : 'application/json'
       },
         body: JSON.stringify(creds)
