@@ -47,7 +47,7 @@ export default function SignIn() {
 
   const handleSignIn = async() => {
     const creds = credentials
-    await fetch("http://3.90.105.161:5000/validateCredentials", {
+    await fetch("/validateCredentials", {
       method: "POST",
       headers: {
         'Content-Type' : 'application/json'
